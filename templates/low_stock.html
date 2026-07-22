@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Low Stock Products</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<h1>Low Stock Products</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Product ID</th>
+    <th>Product Name</th>
+    <th>Category</th>
+    <th>Quantity</th>
+    <th>Status</th>
+</tr>
+
+{% for product in products %}
+
+<tr>
+
+<td>{{ product.product_id }}</td>
+<td>{{ product.product_name }}</td>
+<td>{{ product.category }}</td>
+<td>{{ product.quantity }}</td>
+
+<td style="color:red;">
+Low Stock
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+<button>Back to Dashboard</button>
+</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

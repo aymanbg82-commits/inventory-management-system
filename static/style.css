@@ -1,0 +1,469 @@
+/* ==========================================
+   PROFESSIONAL COLOR PALETTE
+========================================== */
+
+:root{
+
+    --primary:#1E3A8A;
+    --secondary:#2563EB;
+
+    --success:#10B981;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    --background:#F8FAFC;
+
+    --card:#FFFFFF;
+
+    --text:#1F2937;
+
+    --border:#E5E7EB;
+
+}
+
+
+/* ==========================================
+   GENERAL
+========================================== */
+
+body{
+
+    margin:0;
+    padding:0;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    overflow-x:hidden;
+
+}
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+.navbar{
+
+    background:var(--primary)!important;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
+
+}
+
+.navbar-brand{
+
+    font-weight:bold;
+
+    font-size:24px;
+
+}
+
+
+/* ==========================================
+   DASHBOARD
+========================================== */
+
+.container{
+
+    margin-top:30px;
+
+}
+
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.card{
+
+    background:var(--card);
+
+    border:none;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
+.card h1{
+
+    font-size:42px;
+
+    font-weight:bold;
+
+}
+
+.card h5{
+
+    color:#6B7280;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.btn{
+
+    border-radius:8px;
+
+    padding:12px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+/* ==========================================
+   TABLE
+========================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+}
+
+table th{
+
+    background:var(--primary);
+
+    color:white;
+
+    padding:14px;
+
+}
+
+table td{
+
+    padding:12px;
+
+}
+
+table tr:nth-child(even){
+
+    background:#F9FAFB;
+
+}
+
+table tr:hover{
+
+    background:#EEF4FF;
+
+}
+
+
+/* ==========================================
+   FORMS
+========================================== */
+
+.form-control,
+
+.form-select{
+
+    border-radius:8px;
+
+    border:1px solid var(--border);
+
+}
+
+.form-control:focus,
+
+.form-select:focus{
+
+    border-color:var(--secondary);
+
+    box-shadow:0 0 5px rgba(37,99,235,.3);
+
+}
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.list-group-item{
+
+    transition:.3s;
+
+}
+
+.list-group-item:hover{
+
+    background:var(--secondary)!important;
+
+    color:white!important;
+
+}
+
+
+/* ==========================================
+   CHART
+========================================== */
+
+canvas{
+
+    max-height:350px;
+
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+    margin-top:40px;
+
+    padding:20px;
+
+    text-align:center;
+
+    color:#6B7280;
+
+}
+/* ==========================
+        KPI Cards
+========================== */
+
+.kpi-card{
+
+    border:none;
+
+    border-radius:18px;
+
+    transition:.3s;
+
+    overflow:hidden;
+
+}
+
+.kpi-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 35px rgba(0,0,0,.18);
+
+}
+
+.kpi-card h2{
+
+    font-size:42px;
+
+    margin-top:10px;
+
+    font-weight:700;
+
+}
+
+.kpi-card h6{
+
+    font-weight:500;
+
+    opacity:.9;
+
+}
+
+.kpi-icon{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.2);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+}
+/* ==========================
+   Action Cards
+========================== */
+
+.action-card{
+
+    border:none;
+
+    border-radius:18px;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.action-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+
+}
+
+.action-icon{
+
+    font-size:55px;
+
+}
+
+.action-card h5{
+
+    font-weight:600;
+
+}
+
+.action-card p{
+
+    font-size:14px;
+
+}
+
+/* =====================================
+   LOGIN PAGE
+===================================== */
+
+.login-page{
+
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+.login-card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.25);
+
+    overflow:hidden;
+
+}
+
+.login-logo{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:40px;
+
+}
+
+.login-card .form-control{
+
+    height:50px;
+
+    border-left:none;
+
+}
+
+.login-card .input-group-text{
+
+    background:white;
+
+    border-right:none;
+
+}
+
+.login-card .form-control:focus{
+
+    box-shadow:none;
+
+    border-color:#2563EB;
+
+}
+
+.login-card .btn{
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+.login-card .btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(37,99,235,.35);
+
+}
+
+.login-card h2{
+
+    color:#1e293b;
+
+}
+
+.login-card label{
+
+    font-weight:600;
+
+}

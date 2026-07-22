@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Inventory Reports</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+    <th>Report</th>
+    <th>Value</th>
+</tr>
+
+<tr>
+    <td>Total Products</td>
+    <td>{{ total_products }}</td>
+</tr>
+
+<tr>
+    <td>Total Stock</td>
+    <td>{{ total_stock }}</td>
+</tr>
+
+<tr>
+    <td>Total Categories</td>
+    <td>{{ total_categories }}</td>
+</tr>
+
+<tr>
+    <td>Total Products Sold</td>
+    <td>{{ total_sold }}</td>
+</tr>
+
+<tr>
+    <td>Total Sales Amount</td>
+    <td>₹ {{ total_sales }}</td>
+</tr>
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+<button>Back to Dashboard</button>
+</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

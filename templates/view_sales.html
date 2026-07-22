@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales History</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Sales History</h1>
+
+<table border="1" cellpadding="10">
+
+<tr>
+
+    <th>Product ID</th>
+    <th>Product Name</th>
+    <th>Category</th>
+    <th>Quantity Sold</th>
+    <th>Price</th>
+    <th>Total Amount</th>
+    <th>Date</th>
+    <th>Time</th>
+
+</tr>
+
+{% for sale in sales %}
+
+<tr>
+
+<td>{{ sale.product_id }}</td>
+<td>{{ sale.product_name }}</td>
+<td>{{ sale.category }}</td>
+<td>{{ sale.quantity_sold }}</td>
+<td>{{ sale.price }}</td>
+<td>{{ sale.total_amount }}</td>
+<td>{{ sale.date }}</td>
+<td>{{ sale.time }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/dashboard">
+    <button>Back to Dashboard</button>
+</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
