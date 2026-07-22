@@ -108,12 +108,14 @@ body{
 
 }
 
-.card h5{
-
+.card-body h5{
     color:#6B7280;
-
     font-weight:600;
+}
 
+.card-header h5{
+    color:#ffffff !important;
+    font-weight:600;
 }
 
 
