@@ -479,3 +479,262 @@ footer{
     font-weight:700;
     margin:0;
 }
+/* ================= Sidebar ================= */
+
+.sidebar{
+
+    background:#1E293B;
+
+    min-height:100vh;
+
+    color:white;
+
+}
+
+.logo{
+
+    background:#0F172A;
+
+}
+
+.logo h4{
+
+    color:white;
+
+}
+
+.sidebar-link{
+
+    background:transparent !important;
+
+    color:#CBD5E1 !important;
+
+    border:none !important;
+
+    padding:15px 25px;
+
+    font-weight:500;
+
+    transition:0.3s;
+
+}
+
+.sidebar-link i{
+
+    font-size:18px;
+
+}
+
+.sidebar-link:hover{
+
+    background:#2563EB !important;
+
+    color:white !important;
+
+    padding-left:35px;
+
+}
+
+.sidebar-link.active{
+
+    background:#2563EB !important;
+
+    color:white !important;
+
+}
+
+.sidebar hr{
+
+    border-color:#334155;
+
+}
+
+.sidebar .btn{
+
+    border-radius:10px;
+
+}
+/* ================= Navbar ================= */
+
+.navbar{
+
+    height:80px;
+
+    background:white;
+
+}
+
+.navbar input{
+
+    width:250px;
+
+    border-radius:25px;
+
+}
+
+.navbar .btn-light{
+
+    border-radius:50%;
+
+    width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.navbar .btn-light:hover{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.badge{
+
+    font-size:10px;
+
+}
+
+.navbar h3{
+
+    font-size:28px;
+
+}
+
+.navbar small{
+
+    font-size:13px;
+
+}
+/* KPI Cards */
+
+.kpi-card{
+
+    border: none;
+
+    border-radius: 18px;
+
+    transition: all .3s ease;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.kpi-card:hover{
+
+    transform: translateY(-6px);
+
+    box-shadow: 0 15px 30px rgba(0,0,0,.15);
+
+}
+
+.kpi-card i{
+
+    font-size: 50px;
+
+    opacity: .9;
+
+}
+/* Product Table */
+
+.table{
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+.table thead{
+
+    background:#1E293B;
+
+    color:white;
+
+}
+
+.table tbody tr{
+
+    transition:.3s;
+
+}
+
+.table tbody tr:hover{
+
+    background:#EEF4FF;
+
+}
+
+.badge{
+
+    padding:8px 12px;
+
+    font-size:13px;
+
+    border-radius:20px;
+
+}
+
+.btn-sm{
+
+    border-radius:8px;
+
+    margin-right:5px;
+
+}
+
+.card-header{
+
+    font-weight:600;
+
+}
+/* ================= Forms ================= */
+
+.form-control,
+.form-select{
+
+    border-radius:10px;
+
+    padding:12px;
+
+    border:1px solid #dcdcdc;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#2563EB;
+
+    box-shadow:0 0 0 .2rem rgba(37,99,235,.2);
+
+}
+
+.form-label{
+
+    color:#374151;
+
+}
+
+.card-header{
+
+    border-radius:15px 15px 0 0 !important;
+
+}
+
+.btn{
+
+    border-radius:10px;
+
+    padding:10px 20px;
+
+    font-weight:600;
+
+}

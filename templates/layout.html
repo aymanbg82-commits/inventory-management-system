@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% block title %}InventoryPro{% endblock %}
+    </title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- Sidebar -->
+        {% include "sidebar.html" %}
+
+        <!-- Main Content -->
+        <div class="col-lg-10 col-md-9 p-0">
+
+            <!-- Navbar -->
+            {% include "navbar.html" %}
+
+            <!-- Page Content -->
+            <main class="container py-4">
+
+                <!-- ================= Flash Messages ================= -->
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+
+                    {% if messages %}
+
+                        {% for category, message in messages %}
+
+                            <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm mb-4"
+                                 role="alert">
+
+                                {% if category == "success" %}
+
+                                    <i class="bi bi-check-circle-fill me-2"></i>
+
+                                {% elif category == "danger" %}
+
+                                    <i class="bi bi-x-circle-fill me-2"></i>
+
+                                {% elif category == "warning" %}
+
+                                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+
+                                {% else %}
+
+                                    <i class="bi bi-info-circle-fill me-2"></i>
+
+                                {% endif %}
+
+                                {{ message }}
+
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="alert"
+                                    aria-label="Close">
+                                </button>
+
+                            </div>
+
+                        {% endfor %}
+
+                    {% endif %}
+
+                {% endwith %}
+
+                <!-- ================= Page Content ================= -->
+
+                {% block content %}
+
+                {% endblock %}
+
+            </main>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Extra Scripts -->
+{% block scripts %}
+
+{% endblock %}
+
+</body>
+
+</html>

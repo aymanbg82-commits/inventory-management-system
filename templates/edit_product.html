@@ -1,47 +1,206 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-<head>
-    <title>Edit Product</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+{% block title %}
+Edit Product
+{% endblock %}
 
-<body>
+{% block content %}
 
-<h1>Edit Product</h1>
+<div class="row justify-content-center">
 
-<form method="POST">
+    <div class="col-lg-8">
 
-<label>Product Name</label><br>
-<input type="text"
-       name="product_name"
-       value="{{ product.product_name }}"
-       required><br><br>
+        <div class="card shadow border-0">
 
-<label>Category</label><br>
-<input type="text"
-       name="category"
-       value="{{ product.category }}"
-       required><br><br>
+            <div class="card-header bg-warning text-dark">
 
-<label>Price</label><br>
-<input type="number"
-       name="price"
-       value="{{ product.price }}"
-       required><br><br>
+                <h4 class="mb-0">
 
-<label>Quantity</label><br>
-<input type="number"
-       name="quantity"
-       value="{{ product.quantity }}"
-       required><br><br>
+                    <i class="bi bi-pencil-square"></i>
 
-<button type="submit">
-Update Product
-</button>
+                    Edit Product
 
-</form>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+                </h4>
 
-</html>
+            </div>
+
+            <div class="card-body">
+
+                <form method="POST">
+
+                    <div class="row">
+
+                        <!-- Product ID -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label fw-bold">
+
+                                Product ID
+
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                value="{{ product.product_id }}"
+                                readonly>
+
+                        </div>
+
+                        <!-- Product Name -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label fw-bold">
+
+                                Product Name
+
+                            </label>
+
+                            <input
+                                type="text"
+                                name="product_name"
+                                class="form-control"
+                                value="{{ product.product_name }}"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Category -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label fw-bold">
+
+                                Category
+
+                            </label>
+
+                            <input
+                                type="text"
+                                name="category"
+                                class="form-control"
+                                value="{{ product.category }}"
+                                required>
+
+                        </div>
+
+                        <!-- Price -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label fw-bold">
+
+                                Price (₹)
+
+                            </label>
+
+                            <input
+                                type="number"
+                                step="0.01"
+                                name="price"
+                                class="form-control"
+                                value="{{ product.price }}"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Quantity -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label fw-bold">
+
+                                Quantity
+
+                            </label>
+
+                            <input
+                                type="number"
+                                name="quantity"
+                                class="form-control"
+                                value="{{ product.quantity }}"
+                                required>
+
+                        </div>
+
+                        <!-- Status -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label fw-bold">
+
+                                Current Status
+
+                            </label>
+
+                            {% if product.quantity > 10 %}
+
+                            <input
+                                class="form-control bg-success text-white"
+                                value="In Stock"
+                                readonly>
+
+                            {% elif product.quantity > 0 %}
+
+                            <input
+                                class="form-control bg-warning"
+                                value="Low Stock"
+                                readonly>
+
+                            {% else %}
+
+                            <input
+                                class="form-control bg-danger text-white"
+                                value="Out of Stock"
+                                readonly>
+
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="d-flex justify-content-end">
+
+                        <a href="/view_products"
+                           class="btn btn-secondary me-2">
+
+                            Cancel
+
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="btn btn-warning">
+
+                            <i class="bi bi-save"></i>
+
+                            Update Product
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

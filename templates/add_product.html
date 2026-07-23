@@ -1,131 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
 
-<head>
+{% block title %}
+Add Product
+{% endblock %}
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block content %}
 
-    <title>Add Product</title>
+<div class="row justify-content-center">
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+    <div class="col-lg-8">
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <div class="card shadow border-0">
 
-    <!-- CSS -->
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+            <div class="card-header bg-primary text-white">
 
-</head>
+                <h4 class="mb-0">
 
-<body class="bg-light">
+                    <i class="bi bi-plus-circle"></i>
 
-<div class="container py-5">
+                    Add New Product
 
-    <div class="row justify-content-center">
+                </h4>
 
-        <div class="col-lg-8">
+            </div>
 
-            <div class="card shadow border-0">
+            <div class="card-body">
 
-                <div class="card-header bg-primary text-white">
+                <form method="POST">
 
-                    <h3 class="mb-0">
+                    <div class="row">
 
-                        <i class="bi bi-plus-circle-fill"></i>
+                        <!-- Product ID -->
 
-                        Add New Product
+                        <div class="col-md-6 mb-3">
 
-                    </h3>
+                            <label class="form-label fw-bold">
 
-                </div>
+                                Product ID
 
-                <div class="card-body">
+                            </label>
 
-                    <form method="POST">
-
-                        <div class="row">
-
-                            <div class="col-md-6 mb-3">
-
-                                <label class="form-label fw-bold">
-
-                                    Product ID
-
-                                </label>
-
-                                <input
-                                    type="text"
-                                    name="product_id"
-                                    class="form-control"
-                                    placeholder="Enter Product ID"
-                                    required>
-
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-
-                                <label class="form-label fw-bold">
-
-                                    Product Name
-
-                                </label>
-
-                                <input
-                                    type="text"
-                                    name="product_name"
-                                    class="form-control"
-                                    placeholder="Enter Product Name"
-                                    required>
-
-                            </div>
+                            <input
+                                type="text"
+                                name="product_id"
+                                class="form-control"
+                                placeholder="P001"
+                                required>
 
                         </div>
 
-                        <div class="row">
+                        <!-- Product Name -->
 
-                            <div class="col-md-6 mb-3">
+                        <div class="col-md-6 mb-3">
 
-                                <label class="form-label fw-bold">
+                            <label class="form-label fw-bold">
 
-                                    Category
+                                Product Name
 
-                                </label>
+                            </label>
 
-                                <input
-                                    type="text"
-                                    name="category"
-                                    class="form-control"
-                                    placeholder="Example: Electronics"
-                                    required>
-
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-
-                                <label class="form-label fw-bold">
-
-                                    Price (₹)
-
-                                </label>
-
-                                <input
-                                    type="number"
-                                    step="0.01"
-                                    name="price"
-                                    class="form-control"
-                                    placeholder="Enter Price"
-                                    required>
-
-                            </div>
+                            <input
+                                type="text"
+                                name="product_name"
+                                class="form-control"
+                                placeholder="Enter Product Name"
+                                required>
 
                         </div>
 
-                        <div class="mb-4">
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Category -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label fw-bold">
+
+                                Category
+
+                            </label>
+
+                            <select
+                                name="category"
+                                class="form-select"
+                                required>
+
+                                <option value="">
+                                    Select Category
+                                </option>
+
+                                <option>Electronics</option>
+
+                                <option>Furniture</option>
+
+                                <option>Accessories</option>
+
+                                <option>Books</option>
+
+                                <option>Clothing</option>
+
+                                <option>Other</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- Price -->
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label fw-bold">
+
+                                Price (₹)
+
+                            </label>
+
+                            <input
+                                type="number"
+                                step="0.01"
+                                name="price"
+                                class="form-control"
+                                placeholder="0.00"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Quantity -->
+
+                        <div class="col-md-6 mb-3">
 
                             <label class="form-label fw-bold">
 
@@ -137,37 +145,55 @@
                                 type="number"
                                 name="quantity"
                                 class="form-control"
-                                placeholder="Enter Quantity"
+                                placeholder="0"
                                 required>
 
                         </div>
 
-                        <div class="d-flex justify-content-between">
+                        <!-- Status Preview -->
 
-                            <a href="/dashboard"
-                               class="btn btn-secondary">
+                        <div class="col-md-6 mb-3">
 
-                                <i class="bi bi-arrow-left"></i>
+                            <label class="form-label fw-bold">
 
-                                Back
+                                Stock Status
 
-                            </a>
+                            </label>
 
-                            <button
-                                type="submit"
-                                class="btn btn-primary">
-
-                                <i class="bi bi-save"></i>
-
-                                Save Product
-
-                            </button>
+                            <input
+                                type="text"
+                                class="form-control"
+                                value="Automatically Generated"
+                                readonly>
 
                         </div>
 
-                    </form>
+                    </div>
 
-                </div>
+                    <hr>
+
+                    <div class="d-flex justify-content-end">
+
+                        <a href="/view_products"
+                           class="btn btn-secondary me-2">
+
+                            Cancel
+
+                        </a>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+
+                            <i class="bi bi-check-circle"></i>
+
+                            Save Product
+
+                        </button>
+
+                    </div>
+
+                </form>
 
             </div>
 
@@ -177,8 +203,4 @@
 
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+{% endblock %}

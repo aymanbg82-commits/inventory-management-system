@@ -1,54 +1,324 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Reports</title>
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+{% extends "layout.html" %}
 
-<h1>Inventory Reports</h1>
+{% block title %}
+Reports
+{% endblock %}
 
-<table border="1" cellpadding="10">
+{% block content %}
 
-<tr>
-    <th>Report</th>
-    <th>Value</th>
-</tr>
+<div class="d-flex justify-content-between align-items-center mb-4">
 
-<tr>
-    <td>Total Products</td>
-    <td>{{ total_products }}</td>
-</tr>
+    <div>
 
-<tr>
-    <td>Total Stock</td>
-    <td>{{ total_stock }}</td>
-</tr>
+        <h2 class="fw-bold">
+            Inventory Reports
+        </h2>
 
-<tr>
-    <td>Total Categories</td>
-    <td>{{ total_categories }}</td>
-</tr>
+        <p class="text-muted">
+            View a summary of your inventory and sales.
+        </p>
 
-<tr>
-    <td>Total Products Sold</td>
-    <td>{{ total_sold }}</td>
-</tr>
+    </div>
 
-<tr>
-    <td>Total Sales Amount</td>
-    <td>₹ {{ total_sales }}</td>
-</tr>
+    <div>
 
-</table>
+        <a href="/dashboard" class="btn btn-primary">
+            <i class="bi bi-arrow-left"></i>
+            Back to Dashboard
+        </a>
 
-<br>
+       <a href="/export_report?start_date={{ start_date }}&end_date={{ end_date }}"
+   class="btn btn-success ms-2">
 
-<a href="/dashboard">
-<button>Back to Dashboard</button>
+    <i class="bi bi-file-earmark-excel-fill"></i>
+
+    Export Excel
+
 </a>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+        <button onclick="window.print()" class="btn btn-danger ms-2">
+            <i class="bi bi-printer-fill"></i>
+            Print Report
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Summary Cards -->
+
+<div class="row g-4 mb-4">
+
+    <div class="col-lg-4 col-md-6">
+        <div class="card bg-primary text-white shadow border-0">
+            <div class="card-body">
+                <h6>Total Products</h6>
+                <h2>{{ total_products }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <div class="card bg-success text-white shadow border-0">
+            <div class="card-body">
+                <h6>Total Stock</h6>
+                <h2>{{ total_stock }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+        <div class="card bg-warning text-dark shadow border-0">
+            <div class="card-body">
+                <h6>Total Categories</h6>
+                <h2>{{ total_categories }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card bg-info text-white shadow border-0">
+            <div class="card-body">
+                <h6>Total Products Sold</h6>
+                <h2>{{ total_sold }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card bg-danger text-white shadow border-0">
+            <div class="card-body">
+                <h6>Total Sales Amount</h6>
+                <h2>₹{{ total_sales }}</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- ================= Date Filter ================= -->
+
+<div class="card shadow border-0 mb-4">
+
+    <div class="card-header bg-primary text-white">
+
+        <h5 class="mb-0">
+
+            <i class="bi bi-funnel-fill"></i>
+
+            Filter Reports
+
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <form method="GET" action="/reports">
+
+            <div class="row g-3">
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        From Date
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        name="start_date">
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <label class="form-label">
+                        To Date
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        name="end_date">
+
+                </div>
+
+                <div class="col-md-4 d-flex align-items-end">
+
+                    <button class="btn btn-success w-100">
+
+                        <i class="bi bi-search"></i>
+
+                        Generate Report
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- Report Table -->
+
+<div class="card shadow border-0">
+
+    <div class="card-header bg-dark text-white">
+
+        <h5 class="mb-0">
+            <i class="bi bi-file-earmark-bar-graph-fill"></i>
+            Report Summary
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover">
+
+                <thead class="table-light">
+
+                    <tr>
+                        <th>Report</th>
+                        <th>Value</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Total Products</td>
+                        <td>{{ total_products }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Stock</td>
+                        <td>{{ total_stock }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Categories</td>
+                        <td>{{ total_categories }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Products Sold</td>
+                        <td>{{ total_sold }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Sales Amount</td>
+                        <td class="fw-bold text-success">
+                            ₹{{ total_sales }}
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= Sales Details ================= -->
+
+<div class="card shadow border-0 mt-4">
+
+    <div class="card-header bg-success text-white">
+
+        <h5 class="mb-0">
+
+            <i class="bi bi-table"></i>
+
+            Sales Details
+
+        </h5>
+
+    </div>
+
+    <div class="card-body">
+
+        <div class="table-responsive">
+
+            <table class="table table-hover table-striped">
+
+                <thead class="table-light">
+
+                    <tr>
+
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Total Amount</th>
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% if sales %}
+
+                        {% for sale in sales %}
+
+                        <tr>
+
+                            <td>{{ sale.product_name }}</td>
+
+                            <td>{{ sale.category }}</td>
+
+                            <td>
+
+                                <span class="badge bg-primary">
+
+                                    {{ sale.quantity_sold }}
+
+                                </span>
+
+                            </td>
+
+                            <td class="fw-bold text-success">
+
+                                ₹{{ sale.total_amount }}
+
+                            </td>
+
+                            <td>{{ sale.date }}</td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <tr>
+
+                            <td colspan="5" class="text-center text-muted">
+
+                                No sales available.
+
+                            </td>
+
+                        </tr>
+
+                    {% endif %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

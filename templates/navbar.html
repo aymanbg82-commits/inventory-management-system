@@ -1,0 +1,86 @@
+<!-- ================= Navbar ================= -->
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm px-4">
+
+    <div class="container-fluid">
+
+        <!-- Left -->
+
+        <div>
+
+            <h3 class="fw-bold text-primary mb-0">
+
+                Inventory Management System
+
+            </h3>
+
+            <small class="text-muted">
+
+                Inventory Dashboard
+
+            </small>
+
+        </div>
+
+        <!-- Right -->
+
+        <div class="d-flex align-items-center">
+
+            <!-- Search -->
+
+            <div class="me-3">
+
+                <input
+                    type="search"
+                    class="form-control"
+                    placeholder="🔍 Search...">
+
+            </div>
+
+            <!-- Notification -->
+
+            <button class="btn btn-light me-3 position-relative">
+
+                <i class="bi bi-bell fs-5"></i>
+
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                    3
+
+                </span>
+
+            </button>
+
+            <!-- Date -->
+
+            <div class="text-end me-3">
+
+                <h6 class="mb-0 fw-bold">
+
+                    {{ session['user'] }}
+
+                </h6>
+
+                <small class="text-muted">
+
+                    {{ moment if moment else "Administrator" }}
+
+                </small>
+
+            </div>
+
+            <!-- Profile -->
+
+            <div
+                class="rounded-circle bg-primary text-white d-flex justify-content-center align-items-center"
+                style="width:50px;height:50px;">
+
+                <i class="bi bi-person-fill fs-4"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
